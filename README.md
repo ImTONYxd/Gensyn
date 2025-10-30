@@ -9,10 +9,3 @@ At the end, you can **📋 copy all commands at once** to save time.
 This script automatically installs system dependencies and prepares your environment.
 ```bash
 curl https://raw.githubusercontent.com/imysryasir/Gsnyn-1-Click-Solutions/refs/heads/main/gensyn_setup.sh |
-```bash
-
-🧹 Step 2: Remove Any Old Installations
-
-Clean up any previous versions of the rl-swarm folder to avoid conflicts.
-
-sudo rm -rf ~/rl-swarm
