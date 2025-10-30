@@ -1,48 +1,48 @@
-# 🛑 GENSYN NODE SETUP — FULL ONE-LINE GUIDE 🛑
-# Follow this sequence to deploy your Gensyn Node quickly.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🛑 Gensyn Node Setup</title>
+<style>
+body { font-family: monospace; background: #0d1117; color: #c9d1d9; padding: 2rem; }
+pre { background: #161b22; padding: 1rem; border-radius: 10px; position: relative; }
+button.copy-btn {
+  position: absolute; top: 8px; right: 8px; background: #238636; border: none;
+  color: white; padding: 4px 8px; border-radius: 6px; cursor: pointer;
+}
+button.copy-btn:hover { background: #2ea043; }
+h1,h2 { color: #58a6ff; }
+</style>
+</head>
+<body>
 
-# ⚡️ STEP 1 — Install / Deploy Gensyn
+<h1>🛑 GENSYN NODE SETUP — One Click Install 🛑</h1>
+
+<p>Click “Copy” to copy all setup commands at once 👇</p>
+
+<pre><code id="setup">
 curl https://raw.githubusercontent.com/imysryasir/Gsnyn-1-Click-Solutions/refs/heads/main/gensyn_setup.sh | bash
-
-# ⚡️ STEP 2 — Delete Old Gensyn (if exists)
 sudo rm -rf ~/rl-swarm
-
-# ⚡️ STEP 3 — Install New Gensyn Repo
 git clone https://github.com/gensyn-ai/rl-swarm
-
-# ⚡️ STEP 4 — (Optional) Transfer your old swarm file
-# Copy it manually if you have one from a previous install.
-
-# ⚡️ STEP 5 — Create a new screen session
 screen -S gensyn
-
-# ⚡️ STEP 6 — Start Gensyn Node
 cd rl-swarm
 python3 -m venv .venv
 source .venv/bin/activate
 pip install --force-reinstall transformers==4.51.3 trl==0.19.1
 pip freeze
 ./run_rl_swarm.sh
-
-# ⚡️ STEP 7 — Login using localhost tunnel
 cloudflared tunnel --url http://localhost:3000
+</code><button class="copy-btn" onclick="copyText()">📋 Copy</button></pre>
 
-# ⚡️ STEP 8 — When asked:
-# Hugging Face: N  (choose No)
+<script>
+function copyText() {
+  const text = document.getElementById("setup").innerText;
+  navigator.clipboard.writeText(text);
+  alert("✅ Commands copied to clipboard!");
+}
+</script>
 
-# ⚡️ FINAL STEP — When asked:
-# "Name of the model you want to use in hugging face repo/format"
-# Just press ENTER to skip.
+</body>
+</html>
 
-# ✅ DONE! Your node is running and syncing 🚀
-# You can detach from screen with:
-# Ctrl + A + D
-# And reattach with:
-# screen -r gensyn
-
-# 🧩 Useful Commands
-# Check logs:
-tail -f ~/rl-swarm/logs/latest.log
-
-# Stop node:
-pkill -f run_rl_swarm.sh
