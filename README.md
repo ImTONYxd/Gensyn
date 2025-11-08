@@ -13,9 +13,8 @@ curl https://raw.githubusercontent.com/imysryasir/Gsnyn-1-Click-Solutions/refs/h
 
 ## 🧹 Step 2: Remove Any Old Installations
 ```bash
-Clean up any previous versions of the rl-swarm folder to avoid conflicts.
-```
 sudo rm -rf ~/rl-swarm
+```
 
 ## 🧠 Step 3: Clone the Gensyn RL-Swarm Repository
 
